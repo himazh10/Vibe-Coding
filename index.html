@@ -3,31 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Student Profile</title>
-    <!-- Attractive but formal font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Innova | Group Idea Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="profile-card">
-        <div class="card-header"></div>
-        <div class="card-body">
-            <div class="avatar-container">
-                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <h1>Innova<span>Board</span></h1>
             </div>
-            <h1 class="name">Johnathan Smith</h1>
-            <p class="stream">Computer Science & AI</p>
-            <p class="bio">
-                Passionate about software engineering and machine learning. 
-                Focusing on building scalable web applications and exploring 
-                data-driven solutions for real-world challenges.
-            </p>
-            <div class="footer">
-                <button class="btn-connect">Connect with me</button>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="searchInput" placeholder="Search ideas...">
+                </div>
+                <button class="btn-add" id="openModal">
+                    <span>+</span> New Idea
+                </button>
             </div>
+        </header>
+
+        <nav class="filters">
+            <button class="filter-btn active" data-filter="all">All Ideas</button>
+            <button class="filter-btn" data-filter="Tech">Tech</button>
+            <button class="filter-btn" data-filter="Design">Design</button>
+            <button class="filter-btn" data-filter="Marketing">Marketing</button>
+            <button class="filter-btn" data-filter="Product">Product</button>
+        </nav>
+
+        <main class="idea-grid" id="ideaGrid">
+            <!-- Ideas will be injected here -->
+        </main>
+    </div>
+
+    <!-- Modal for adding new ideas -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Share Your Idea</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="ideaForm">
+                <div class="form-group">
+                    <label for="ideaTitle">Title</label>
+                    <input type="text" id="ideaTitle" placeholder="What's the big idea?" required>
+                </div>
+                <div class="form-group">
+                    <label for="ideaCategory">Category</label>
+                    <select id="ideaCategory" required>
+                        <option value="Tech">Tech</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Product">Product</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ideaDesc">Description</label>
+                    <textarea id="ideaDesc" rows="4" placeholder="Describe your vision..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Launch Idea</button>
+            </form>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
